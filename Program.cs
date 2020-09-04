@@ -13,7 +13,7 @@ namespace ShootingDice
 
             Player player2 = new Player();
             player2.Name = "Sue";
-
+            // These two above are playing each other
             player2.Play(player1);
 
             Console.WriteLine("-------------------");
@@ -30,14 +30,23 @@ namespace ShootingDice
 
             Console.WriteLine("-------------------");
 
+            Console.WriteLine("-------------------");
+            SmackTalkingPlayer player4 = new SmackTalkingPlayer();
+            player4.Name = "Smack Talking Dude";
+            player4.Play(player3);
+
+            Console.WriteLine("-------------------");
+
+            // Think of them as arrays. A collection of objects.
             List<Player> players = new List<Player>()
             {
                 player1,
                 player2,
                 player3,
+                player4,
                 large,
             };
-
+            // Player is a parameter of PlayMany
             PlayMany(players);
         }
 
