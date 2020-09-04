@@ -5,6 +5,6 @@ namespace ShootingDice
     // A Player who shouts a taunt every time they roll dice
     public class SmackTalkingPlayer
     {
-        public string Taunt { get; }
+        public string Taunt { get; } = "Come back in 10 years";
     }
 }

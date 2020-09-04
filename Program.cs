@@ -18,22 +18,24 @@ namespace ShootingDice
 
             Console.WriteLine("-------------------");
 
-            Player player3 = new Player();
-            player3.Name = "Wilma";
-
-            player3.Play(player2);
-
-            Console.WriteLine("-------------------");
-
             Player large = new LargeDicePlayer();
             large.Name = "Bigun Rollsalot";
 
             player1.Play(large);
 
             Console.WriteLine("-------------------");
+            HumanPlayer player3 = new HumanPlayer();
+            player3.Name = "You";
+            player3.Play(large);
 
-            List<Player> players = new List<Player>() {
-                player1, player2, player3, large
+            Console.WriteLine("-------------------");
+
+            List<Player> players = new List<Player>()
+            {
+                player1,
+                player2,
+                player3,
+                large,
             };
 
             PlayMany(players);
@@ -65,7 +67,14 @@ namespace ShootingDice
                 // Make adjacent players play noe another
                 Player player1 = shuffledPlayers[i];
                 Player player2 = shuffledPlayers[i + 1];
-                player1.Play(player2);
+                try
+                {
+                    player1.Play(player2);
+                }
+                catch
+                {
+                    Console.WriteLine($"You are a cheater!");
+                }
             }
         }
     }
